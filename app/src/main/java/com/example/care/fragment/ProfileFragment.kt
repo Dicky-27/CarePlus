@@ -6,9 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.ActionBar
 import com.example.care.LoginActivity
-import com.example.care.R
 import com.example.care.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 
