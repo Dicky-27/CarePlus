@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Care+</string>
+    <string name="no_account">No, have account? <b>SignUp</b></string>
+    <string name="have_account">Already have account? <b>Login</b></string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="signup">SignUp</string>
+    <string name="loggedIn">You\'re loggedIn as</string>
+    <string name="logout">Logout</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nama">Name</string>
+    <string name="phone">Phone</string>
 </resources>
