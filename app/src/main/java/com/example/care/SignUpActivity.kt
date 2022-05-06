@@ -75,10 +75,11 @@ class SignUpActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
-                val newUser = User(name, email.toString(), phone)
+                val newUser = User(firebaseUser.uid.toString(), name, email.toString(), phone)
 
                 FirebaseUtils().fireStoreDatabase.collection("users")
-                    .add(newUser)
+                    .document(firebaseUser.uid)
+                    .set(newUser)
                     .addOnSuccessListener {
                         progressDialog.dismiss()
                         Toast.makeText(this, "Account created with email $email", Toast.LENGTH_SHORT).show()
