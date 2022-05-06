@@ -6,20 +6,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.care.R
+import com.example.care.databinding.FragmentHomeBinding
+import com.example.care.databinding.FragmentProfileBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    private lateinit var binding: FragmentHomeBinding
+    private lateinit var firebaseAuth: FirebaseAuth
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = FragmentHomeBinding.inflate(layoutInflater)
     }
 
-    companion object {
-        fun newInstance(): HomeFragment{
-            val fragment = HomeFragment()
-            val args = Bundle()
-            fragment.arguments = args
-            return fragment
-        }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return binding.root
     }
 }

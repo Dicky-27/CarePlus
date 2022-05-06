@@ -15,7 +15,6 @@ import com.google.firebase.auth.FirebaseAuth
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
-    private lateinit var actionBar: ActionBar
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {

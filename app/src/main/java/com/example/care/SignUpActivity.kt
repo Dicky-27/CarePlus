@@ -56,6 +56,10 @@ class SignUpActivity : AppCompatActivity() {
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             binding.emailTil.error = "Invalid email format"
+        } else if (TextUtils.isEmpty(name)) {
+            binding.nameTil.error = "Please enter name"
+        } else if (TextUtils.isEmpty(phone)) {
+            binding.phoneTil.error = "Please enter phone number"
         } else if (TextUtils.isEmpty(password)) {
             binding.passwordTil.error = "Please enter password"
         } else if (password.length < 6){
@@ -87,7 +91,7 @@ class SignUpActivity : AppCompatActivity() {
                     }
 
             }
-            .addOnFailureListener { e->
+            .addOnFailureListener { e ->
                 progressDialog.dismiss()
                 Toast.makeText(this, "SignUp failed due to ${e.message}", Toast.LENGTH_SHORT).show()
             }

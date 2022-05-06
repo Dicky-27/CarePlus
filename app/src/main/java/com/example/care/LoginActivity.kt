@@ -72,7 +72,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(Intent(this, HomeTabBarActivity::class.java))
                 finish()
             }
-            .addOnFailureListener { e->
+            .addOnFailureListener { e ->
                 progressDialog.dismiss()
                 Toast.makeText(this, "login  failed due to ${e.message}", Toast.LENGTH_SHORT).show()
             }
