@@ -31,7 +31,7 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         return binding.root
     }
 
@@ -41,8 +41,8 @@ class ProfileFragment : Fragment() {
             val email = firebaseUser.email
             binding.tvEmail.text = email
         } else {
-            val intent = Intent (getActivity(), LoginActivity::class.java)
-            getActivity()?.startActivity(intent)
+            val intent = Intent (activity, LoginActivity::class.java)
+            activity?.startActivity(intent)
         }
     }
 }

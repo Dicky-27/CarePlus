@@ -42,7 +42,6 @@ class HomeTabBarActivity : AppCompatActivity() {
                     actionBar.title = "Profile"
                     setCurrentFragment(secondFragment)
                 }
-
             }
             true
         }

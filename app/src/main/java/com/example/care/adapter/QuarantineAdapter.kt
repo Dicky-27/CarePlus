@@ -1,14 +1,18 @@
 package com.example.care.adapter
 
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.care.R
 import com.example.care.model.QuarantinePlace
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.Query
+import com.squareup.picasso.Picasso
 
 class QuarantineAdapter(
     query: Query,
@@ -20,12 +24,22 @@ class QuarantineAdapter(
     ) : RecyclerView.ViewHolder(itemView) {
 
         private val title: TextView = itemView.findViewById(R.id.tv_title)
+        private val address: TextView = itemView.findViewById(R.id.tv_address)
+        private val room: TextView = itemView.findViewById(R.id.tv_room)
+        private val image: ImageView = itemView.findViewById(R.id.iv_quarantine)
+        private val cardView: CardView = itemView.findViewById(R.id.item_quarantine_card)
 
         fun bind(snapshot: DocumentSnapshot, listener: QuarantineAdapterListener) {
             val quarantinePlaces: QuarantinePlace? = snapshot.toObject(QuarantinePlace::class.java)
             title.text = quarantinePlaces?.title
+            address.text = quarantinePlaces?.quarantinePlace?.address
+            room.text = quarantinePlaces?.room.toString()
+            Picasso.get()
+                .load(quarantinePlaces?.imageUrl)
+                .into(image)
 
-            title.setOnClickListener {
+
+            cardView.setOnClickListener {
                 listener.onPlaceSelected(quarantinePlaces)
             }
         }

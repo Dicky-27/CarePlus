@@ -1,12 +1,13 @@
 package com.example.care.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.care.QuarantineDetailActivity
 import com.example.care.databinding.FragmentHomeBinding
 import com.example.care.adapter.QuarantineAdapter
 import com.example.care.model.QuarantinePlace
@@ -25,7 +26,10 @@ class HomeFragment : Fragment() {
         val recyclerView = binding.recyclerList
         quarantineAdapter = QuarantineAdapter(query, object : QuarantineAdapter.QuarantineAdapterListener {
             override fun onPlaceSelected(quarantinePlaces: QuarantinePlace?) {
-                Toast.makeText(activity, "Selected", Toast.LENGTH_SHORT).show()
+                startActivity(
+                    Intent(activity, QuarantineDetailActivity::class.java)
+                        .putExtra("intent_quarantine", quarantinePlaces)
+                )
             }
         })
         recyclerView.apply {
@@ -38,7 +42,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         return binding.root
     }
 

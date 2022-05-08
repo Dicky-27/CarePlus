@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class QuarantinePlace(
     var title: String? = null,
+    var imageUrl: String? = null,
     var quarantinePlace: Location? = null,
     var phone: String? = null,
     var room: Int? = null

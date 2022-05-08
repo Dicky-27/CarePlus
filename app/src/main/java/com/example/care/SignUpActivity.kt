@@ -8,7 +8,6 @@ import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
-import com.example.care.databinding.ActivityLoginBinding
 import com.example.care.databinding.ActivitySignUpBinding
 import com.example.care.model.User
 import com.example.care.utils.FirebaseUtils
