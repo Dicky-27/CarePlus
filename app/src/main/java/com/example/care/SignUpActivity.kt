@@ -8,7 +8,6 @@ import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
-import com.example.care.databinding.ActivityLoginBinding
 import com.example.care.databinding.ActivitySignUpBinding
 import com.example.care.model.User
 import com.example.care.utils.FirebaseUtils
@@ -75,10 +74,11 @@ class SignUpActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
-                val newUser = User(name, email.toString(), phone)
+                val newUser = User(firebaseUser.uid.toString(), name, email.toString(), phone)
 
                 FirebaseUtils().fireStoreDatabase.collection("users")
-                    .add(newUser)
+                    .document(firebaseUser.uid)
+                    .set(newUser)
                     .addOnSuccessListener {
                         progressDialog.dismiss()
                         Toast.makeText(this, "Account created with email $email", Toast.LENGTH_SHORT).show()

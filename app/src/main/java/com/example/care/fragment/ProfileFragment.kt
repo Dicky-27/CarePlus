@@ -6,9 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.ActionBar
 import com.example.care.LoginActivity
-import com.example.care.R
 import com.example.care.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -33,7 +31,7 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         return binding.root
     }
 
@@ -43,8 +41,8 @@ class ProfileFragment : Fragment() {
             val email = firebaseUser.email
             binding.tvEmail.text = email
         } else {
-            val intent = Intent (getActivity(), LoginActivity::class.java)
-            getActivity()?.startActivity(intent)
+            val intent = Intent (activity, LoginActivity::class.java)
+            activity?.startActivity(intent)
         }
     }
 }
