@@ -16,4 +16,6 @@
     <string name="address">address</string>
     <string name="room_available">Room available :</string>
     <string name="see_location">See location</string>
+    <string name="open_on_google_maps">Open on google maps</string>
+    <string name="registrasi">Registrasi</string>
 </resources>
