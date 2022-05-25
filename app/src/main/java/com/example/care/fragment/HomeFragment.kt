@@ -53,6 +53,6 @@ class HomeFragment : Fragment() {
 
     override fun onStop() {
         super.onStop()
-        quarantineAdapter.startListening()
+        quarantineAdapter.stopListening()
     }
 }
