@@ -45,5 +45,18 @@ class QuarantineDetailActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener {
             onBackPressed()
         }
+
+        binding.btnRegist.setOnClickListener {
+            startActivity(
+                Intent(this, FormRegistActivity::class.java)
+            )
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity(
+            Intent(this, HomeTabBarActivity::class.java)
+        )
     }
 }
