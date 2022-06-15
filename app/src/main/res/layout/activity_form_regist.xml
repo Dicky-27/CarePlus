@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormRegistActivity">
+    tools:context=".activity.FormRegistActivity">
 
 
     <TextView
@@ -116,6 +116,7 @@
         android:textSize="@dimen/_8ssp"/>
 
     <Button
+        android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
         android:text="@string/submit"

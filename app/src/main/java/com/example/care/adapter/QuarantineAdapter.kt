@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.DrawableRes
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.care.R
@@ -25,7 +26,6 @@ class QuarantineAdapter(
 
         private val title: TextView = itemView.findViewById(R.id.tv_title)
         private val address: TextView = itemView.findViewById(R.id.tv_address)
-        private val room: TextView = itemView.findViewById(R.id.tv_room)
         private val image: ImageView = itemView.findViewById(R.id.iv_quarantine)
         private val cardView: CardView = itemView.findViewById(R.id.item_quarantine_card)
 
@@ -33,11 +33,12 @@ class QuarantineAdapter(
             val quarantinePlaces: QuarantinePlace? = snapshot.toObject(QuarantinePlace::class.java)
             title.text = quarantinePlaces?.title
             address.text = quarantinePlaces?.quarantinePlace?.address
-            room.text = quarantinePlaces?.room.toString()
             Picasso.get()
                 .load(quarantinePlaces?.imageUrl)
+                .fit()
+                .centerCrop()
+                .placeholder(R.drawable.loading_img_animation)
                 .into(image)
-
 
             cardView.setOnClickListener {
                 listener.onPlaceSelected(quarantinePlaces)
