@@ -7,6 +7,11 @@
         android:title="@string/home" />
 
     <item
+        android:id="@+id/regist"
+        android:icon="@drawable/common_full_open_on_phone"
+        android:title="@string/regist"/>
+
+    <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/profile" />

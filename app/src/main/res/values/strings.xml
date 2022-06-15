@@ -22,4 +22,7 @@
     <string name="label_address">Address</string>
     <string name="submit">Submit</string>
     <string name="lokasi_terms">* Lokasi anda akan digunakan untuk penjemputan</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="get_direction">Get direction</string>
+    <string name="regist">Regist</string>
 </resources>

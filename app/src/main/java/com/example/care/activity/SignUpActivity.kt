@@ -1,4 +1,4 @@
-package com.example.care
+package com.example.care.activity
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -17,7 +17,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var actionBar: ActionBar
     private lateinit var progressDialog: ProgressDialog
-    private  lateinit var  firebaseAuth: FirebaseAuth
+    private lateinit var  firebaseAuth: FirebaseAuth
 
     private var name = ""
     private var email = ""
