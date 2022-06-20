@@ -8,22 +8,27 @@
 
     <TextView
         android:id="@+id/tv_signup"
+        style="@style/TextAppearance.MaterialComponents.Headline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:text="@string/signup"
-        style="@style/TextAppearance.MaterialComponents.Headline4"
-        android:layout_marginTop="@dimen/_100sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
+        style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/nameTil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_70sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginHorizontal="@dimen/_20sdp"
+        app:startIconDrawable="@drawable/ic_baseline_person_24"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
+        app:endIconMode="clear_text"
         app:layout_constraintTop_toBottomOf="@+id/tv_signup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -33,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nama"
+            android:maxLength="20"
             android:inputType="textPersonName"
             android:importantForAutofill="no" />
 
@@ -40,6 +46,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/phoneTil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,13 +55,16 @@
         android:layout_marginHorizontal="@dimen/_20sdp"
         app:layout_constraintTop_toBottomOf="@+id/nameTil"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:endIconMode="clear_text"
+        app:prefixText="+62">
 
         <EditText
             android:id="@+id/ed_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/phone"
+            android:maxLength="13"
             android:inputType="phone"
             android:importantForAutofill="no" />
 
@@ -63,6 +73,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
+        style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/emailTil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,6 +96,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/passwordTil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
