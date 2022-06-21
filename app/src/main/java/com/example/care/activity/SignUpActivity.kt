@@ -30,7 +30,7 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         actionBar = supportActionBar!!
-        actionBar.title = "Sign Up"
+        actionBar.title = "Care+"
 
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Please wait")
