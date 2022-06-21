@@ -16,4 +16,13 @@
     <string name="address">address</string>
     <string name="room_available">Room available :</string>
     <string name="see_location">See location</string>
+    <string name="open_on_google_maps">Open on google maps</string>
+    <string name="registrasi">Registrasi</string>
+    <string name="registration">Registration</string>
+    <string name="label_address">Address</string>
+    <string name="submit">Submit</string>
+    <string name="lokasi_terms">* Lokasi anda akan digunakan untuk penjemputan</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="get_direction">Get direction</string>
+    <string name="regist">Regist</string>
 </resources>

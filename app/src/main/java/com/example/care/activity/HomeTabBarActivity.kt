@@ -1,17 +1,15 @@
-package com.example.care
+package com.example.care.activity
 
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.FrameLayout
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.care.R
 import com.example.care.databinding.ActivityHomeTabBarBinding
-import com.example.care.databinding.ActivityLoginBinding
 import com.example.care.fragment.HomeFragment
 import com.example.care.fragment.ProfileFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationBarMenu
+import com.example.care.fragment.RegistFragment
+
 
 class HomeTabBarActivity : AppCompatActivity() {
 
@@ -23,8 +21,9 @@ class HomeTabBarActivity : AppCompatActivity() {
         binding = ActivityHomeTabBarBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val firstFragment=HomeFragment()
-        val secondFragment=ProfileFragment()
+        val firstFragment= HomeFragment()
+        val secondFragment= RegistFragment()
+        var thirdFragment = ProfileFragment()
 
         actionBar = supportActionBar!!
         actionBar.title = "Home"
@@ -37,19 +36,36 @@ class HomeTabBarActivity : AppCompatActivity() {
                     actionBar.title = "Home"
                     setCurrentFragment(firstFragment)
                 }
+
+                R.id.regist -> {
+                    actionBar = supportActionBar!!
+                    actionBar.title = "Regist"
+                    setCurrentFragment(secondFragment)
+                }
+
                 R.id.profile -> {
                     actionBar = supportActionBar!!
                     actionBar.title = "Profile"
-                    setCurrentFragment(secondFragment)
+                    setCurrentFragment(thirdFragment)
                 }
             }
             true
         }
     }
 
-    private fun setCurrentFragment(fragment:Fragment)=
+    override fun onStart() {
+        super.onStart()
+        val backFrom = intent.getStringExtra("back")
+        if (backFrom == "backFromRegist") {
+            binding.bottomNavigationView.selectedItemId = R.id.regist
+        } else {
+            return
+        }
+    }
+
+    private fun setCurrentFragment(fragment: Fragment)=
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.flFragment,fragment)
             commit()
-        }
+    }
 }

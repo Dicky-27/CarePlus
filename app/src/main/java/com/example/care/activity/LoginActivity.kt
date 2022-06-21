@@ -1,4 +1,4 @@
-package com.example.care
+package com.example.care.activity
 
 import android.app.ProgressDialog
 import android.content.Intent

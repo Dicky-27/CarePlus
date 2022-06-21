@@ -4,32 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.SignUpActivity">
+    tools:context=".activity.FormRegistActivity">
+
 
     <TextView
-        android:id="@+id/tv_signup"
-        style="@style/TextAppearance.MaterialComponents.Headline4"
+        android:id="@+id/tv_title_regist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="@string/signup"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/registration"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/_20sdp"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/nameTil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_70sdp"
+        android:layout_marginTop="@dimen/_50sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginHorizontal="@dimen/_20sdp"
-        app:startIconDrawable="@drawable/ic_baseline_person_24"
-        app:counterEnabled="true"
-        app:counterMaxLength="20"
-        app:endIconMode="clear_text"
-        app:layout_constraintTop_toBottomOf="@+id/tv_signup"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_regist"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -38,51 +36,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nama"
-            android:maxLength="20"
             android:inputType="textPersonName"
             android:importantForAutofill="no" />
 
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/phoneTil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        app:layout_constraintTop_toBottomOf="@+id/nameTil"
-        app:startIconDrawable="@drawable/ic_baseline_phone_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:endIconMode="clear_text"
-        app:prefixText="+62">
-
-        <EditText
-            android:id="@+id/ed_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/phone"
-            android:maxLength="13"
-            android:inputType="phone"
-            android:importantForAutofill="no" />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/emailTil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginHorizontal="@dimen/_20sdp"
-        app:layout_constraintTop_toBottomOf="@+id/phoneTil"
-        app:startIconDrawable="@drawable/ic_baseline_attach_email_24"
+        app:layout_constraintTop_toBottomOf="@+id/nameTil"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -94,55 +60,70 @@
             android:inputType="textEmailAddress"
             android:importantForAutofill="no" />
 
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/passwordTil"
+        android:id="@+id/phoneTil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:passwordToggleEnabled="true"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginHorizontal="@dimen/_20sdp"
-        app:startIconDrawable="@drawable/ic_baseline_lock_24"
         app:layout_constraintTop_toBottomOf="@+id/emailTil"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <EditText
-            android:id="@+id/ed_password"
+            android:id="@+id/ed_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="@string/password"
+            android:hint="@string/phone"
+            android:inputType="phone"
             android:importantForAutofill="no" />
-
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/btn_signup"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/addressTill"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/passwordTil"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginHorizontal="@dimen/_20sdp"
-        android:text="@string/signup"/>
+        app:layout_constraintTop_toBottomOf="@+id/phoneTil"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <EditText
+            android:id="@+id/ed_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_address"
+            android:inputType="textLongMessage"
+            android:importantForAutofill="no" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/tv_account"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/have_account"
-        android:layout_margin="@dimen/_20sdp"
-        style="@style/TextAppearance.MaterialComponents.Caption"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/lokasi_terms"
+        app:layout_constraintTop_toBottomOf="@+id/addressTill"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textSize="@dimen/_8ssp"/>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:text="@string/submit"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="@dimen/_20sdp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
