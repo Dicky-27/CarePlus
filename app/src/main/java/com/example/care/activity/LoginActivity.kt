@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         actionBar = supportActionBar!!
-        actionBar.title = "Login"
+        actionBar.title = "Care+"
 
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Please wait")
