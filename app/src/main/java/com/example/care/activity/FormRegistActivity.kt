@@ -22,6 +22,7 @@ import com.example.care.model.Status
 import com.example.care.utils.FirebaseUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import java.time.LocalDate
 import java.util.*
 import kotlin.concurrent.timerTask
 
@@ -37,6 +38,8 @@ class FormRegistActivity : AppCompatActivity() {
     private var phone = ""
     private var address = ""
     private var placeId = ""
+    @RequiresApi(Build.VERSION_CODES.O)
+    private var dateCheckin = Date()
 
     lateinit var notificationChannel: NotificationChannel
     lateinit var notificationManager: NotificationManager
@@ -44,6 +47,7 @@ class FormRegistActivity : AppCompatActivity() {
     private val channelId = "12345"
     private val description = "Notification Status"
 
+    @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,11 +68,31 @@ class FormRegistActivity : AppCompatActivity() {
             didTapRegist()
         }
 
+        binding.edDate.setOnClickListener {
+            val c = Calendar.getInstance()
+            val year = c.get(Calendar.YEAR)
+            val month = c.get(Calendar.MONTH)
+            val day = c.get(Calendar.DAY_OF_MONTH)
+
+
+            val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                binding.edDate.setText("" + dayOfMonth + "-" + monthOfYear + "-" + year)
+                val calendar = Calendar.getInstance()
+                calendar[Calendar.YEAR] = year
+                calendar[Calendar.MONTH] = monthOfYear
+                calendar[Calendar.DATE] = dayOfMonth
+                val date = calendar.time
+                dateCheckin = date
+            }, year, month, day)
+
+            dpd.show()
+        }
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun showNotification(id: String) {
-        val rnds = (0..3).random()
+        val rnds = (0..2).random()
         val intent = Intent(this, HomeTabBarActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -79,18 +103,17 @@ class FormRegistActivity : AppCompatActivity() {
             builder = Notification.Builder(this, channelId)
                 .setContentTitle("Status Registration")
                 .setContentText("Hi your registration has been updated!")
-                .setSmallIcon(R.drawable .ic_baseline_home_24)
-                .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable
-                    .ic_launcher_background))
+                .setSmallIcon(R.mipmap.ic_care_logo)
+                .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.mipmap
+                    .ic_care_logo))
                 .setContentIntent(pendingIntent)
         } else {
             builder = Notification.Builder(this, channelId)
-                .setContentTitle("NOTIFICATION USING " +
-                        "KOTLIN")
-                .setContentText("Test Notification")
-                .setSmallIcon(R.drawable .ic_baseline_home_24)
-                .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable
-                    .ic_launcher_background))
+                .setContentTitle("Status Registration")
+                .setContentText("Hi your registration has been updated!")
+                .setSmallIcon(R.mipmap.ic_care_logo)
+                .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.mipmap
+                    .ic_care_logo))
                 .setContentIntent(pendingIntent)
         }
 
@@ -161,7 +184,8 @@ class FormRegistActivity : AppCompatActivity() {
             phone,
             email,
             address,
-            Status.Waiting.value
+            Status.Waiting.value,
+            dateCheckin
         )
         progressDialog.show()
         FirebaseUtils().fireStoreDatabase.collection("regist")

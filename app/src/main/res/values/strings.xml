@@ -25,4 +25,5 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="get_direction">Get direction</string>
     <string name="regist">Regist</string>
+    <string name="success_label">Registration is successful, you just need to wait for the clerk to accept your request and we will notify you.</string>
 </resources>

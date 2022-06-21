@@ -16,7 +16,8 @@ data class PlaceReserved(
     var phone: String? = null,
     var email: String? = null,
     var address: String? = null,
-    var status: String? = null
+    var status: String? = null,
+    var date: Date? = null,
 ) : Parcelable
 
 enum class Status(val value: String) {
