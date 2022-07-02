@@ -31,15 +31,12 @@ abstract class FirestoreAdapter<VH : RecyclerView.ViewHolder>(
         documentSnapshots: QuerySnapshot?,
         exception: FirebaseFirestoreException?
     ) {
-        // Handle errors
         if (exception != null) {
             Log.e("onEvent:error", exception.toString())
             return
         }
 
-        // Dispatch the event
         for (change in documentSnapshots!!.documentChanges) {
-            // Snapshot of the changed document
             when (change.type) {
                 DocumentChange.Type.ADDED -> onDocumentAdded(change)
                 DocumentChange.Type.MODIFIED -> onDocumentModified(change)
@@ -55,11 +52,9 @@ abstract class FirestoreAdapter<VH : RecyclerView.ViewHolder>(
 
     protected open fun onDocumentModified(change: DocumentChange) {
         if (change.oldIndex == change.newIndex) {
-            // Item changed but remained in same position
             snapshots[change.oldIndex] = change.document
             notifyItemChanged(change.oldIndex)
         } else {
-            // Item changed and changed position
             snapshots.removeAt(change.oldIndex)
             snapshots.add(change.newIndex, change.document)
             notifyItemMoved(change.oldIndex, change.newIndex)
