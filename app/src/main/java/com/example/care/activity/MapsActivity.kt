@@ -40,6 +40,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding.tvTitlePlace.text = quarantinePlace.title
         binding.tvAddressPlace.text = quarantinePlace.quarantinePlace?.address
         binding.tvTypePlace.text = quarantinePlace.type
+        binding.tvPhone.text = quarantinePlace.phone
         Picasso.get()
             .load(quarantinePlace.imageUrl)
             .into(binding.ivPlace)
